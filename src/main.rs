@@ -6,13 +6,15 @@ fn main() {
     let median = get_median(&mut list);
     let mode = get_mode(&list);
 
-    list_vec(&list); // This line of list has been sorted
+    // print!("This is a sorted list: ");
+    // list_vec(&list); // This line of list has been sorted
     println!("mean: {}", mean);
     println!("median: {}", median);
     println!("mode: {}", mode);
 }
 
 fn list_vec(vec: &Vec<i32>) {
+    print!("List: ");
     for val in vec {
         print!("{}, ", val);
     }
@@ -24,13 +26,12 @@ fn get_mean(list: &Vec<i32>) -> f32 {
     let mut total = 0 as f32;
     let mean: f32;
 
-    println!("This is `get_mean`!");
-    println!("Total: ");
+    print!("Total: ");
     for (i, val) in list.iter().enumerate() {
         let f32_val = *val as f32;
         let f32_i = i as f32;
 
-        if f32_i < length {
+        if f32_i < length - 1.0 {
             print!("{} + ", f32_val);
         } else {
             print!("{} =", f32_val);
@@ -46,7 +47,6 @@ fn get_mean(list: &Vec<i32>) -> f32 {
 }
 
 fn get_median(list: &mut Vec<i32>) -> i32 {
-    println!("This is `get_median`");
     let mid = list.len() / 2 - 1;
     list.sort();
     list[mid]
